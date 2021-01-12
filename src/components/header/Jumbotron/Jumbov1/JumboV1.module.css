@@ -1,0 +1,26 @@
+.JumboCardConatiner {
+
+    width: 100%;
+    height: 5rem;
+    /* background-color: red; */
+    margin-top: 2rem;
+  
+    display: flex;
+    justify-content: space-around;
+}
+
+.JumboCard1 ,.JumboCard2 {
+height: 100%;
+background-color: seagreen;
+margin: 0px 10px 10px 10px;
+padding: 1rem;
+border-radius: 5px;
+}
+
+.JumboCard1  {
+    width: 40%;
+}
+
+.JumboCard2  {
+    width: 100%;
+}
