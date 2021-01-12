@@ -14,6 +14,7 @@ import Style from "./Admin.module.css";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 export const Admin = () => {
+    const datates = [] ;
     const datamember ={
         data : [
             {
@@ -525,7 +526,7 @@ export const Admin = () => {
       },
     ],
     
-
+    rows : []
     
   };
 
@@ -538,15 +539,12 @@ console.log(datamember.data.length)
 
 const Loaddata =()=>{
 for (let index = 0; index < datamember.data.length; index++) {
-    console.log(datamember.data[index].name)
-    console.log(datamember.data[index].position)
-    console.log(datamember.data[index].office)
-    console.log(datamember.data[index].age)
-    console.log(datamember.data[index].date)
-    console.log(datamember.data[index].salary)
- 
-}
+  const datacoba = {action : <button key={index}>tes</button> };
+  const dataku2 = {...datamember.data[index],...datacoba}
+  data.rows.push(dataku2);
 
+} 
+    
 }
 
 
