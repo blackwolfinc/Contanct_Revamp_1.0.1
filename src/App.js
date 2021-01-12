@@ -2,9 +2,9 @@ import './App.css';
 import React from 'react';
 
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { Page2 } from './pages/Page2';
 import {Page1} from './pages/Page1';
-import { Page3 } from './pages/Page3';
+import { Page2 } from './pages/Page2';
+
 
 
 function App() {
@@ -12,10 +12,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Switch>
-      <Route path="/nav3">
-      <Page3/>
-      </Route>
-      <Route path="/nav2">
+      <Route path="/admin">
       <Page2/>
       </Route>
       <Route path="/">

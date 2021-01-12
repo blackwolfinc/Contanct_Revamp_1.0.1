@@ -1,0 +1,70 @@
+.TabelContainer {
+    margin: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+   
+}
+
+.Tabel {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+}
+
+.CardContainer {
+    /* background-color: cadetblue; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.BtnLogin {
+    width: 10rem;
+    align-self: flex-end;
+    padding: 5px 10px;
+    border: 1px solid ;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    background-color: green;
+    box-shadow:  9px 9px 18px #bebebe,
+    -9px -9px 18px #ffffff;
+}
+
+.BtnLogin a {
+    color: #fff !important;
+    text-decoration: solid;
+
+}
+
+.LoginContainer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 10rem auto ;
+    background-color: #ffffff;
+    z-index: 100;
+    border-radius: 20px;
+}
+
+.CardLogin{
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    padding: 3rem;
+    border-radius: 20px;
+   
+    
+}
+
+.modalTrans {
+background: red !important;
+box-shadow: none;
+}
