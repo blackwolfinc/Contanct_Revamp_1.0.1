@@ -1,8 +1,8 @@
 import React from "react";
 import { MDBDataTable } from "mdbreact";
 import { Link } from "react-router-dom";
-import axios from 'axios';
-import './Tabel.css'
+import axios from "axios";
+import "./Tabel.css";
 import {
   MDBContainer,
   MDBBtn,
@@ -54,7 +54,6 @@ export const Tabel = () => {
         sort: "asc",
         width: 100,
       },
-  
     ],
     rows: [
       {
@@ -64,14 +63,14 @@ export const Tabel = () => {
         age: "29",
         date: "2011/06/27",
         salary: "$183",
-      }
+      },
     ],
   };
 
   const [ModalToglle, setModalToglle] = useState(false);
   const [LoginValid, setLoginValid] = useState(false);
-  const [DataUmum , setDataUmum] = useState({});
-  const [DataTampil , setDataTampil] = useState({});
+  const [DataUmum, setDataUmum] = useState({});
+  const [DataTampil, setDataTampil] = useState({});
   const history = useHistory();
 
   const toggle = () => {
@@ -82,48 +81,42 @@ export const Tabel = () => {
   };
 
   useEffect(() => {
-    let axios = require('axios');
-
-      let config = {
-        method: 'get',
-        url: 'http://universities.hipolabs.com/search?country=indonesia',
-        headers: { }
-      };
-
-
-      //    {
-      //   name: "Michael Bruce",
-      //   position: "Javascript Developer",
-      //   office: "Singapore",
-      //   age: "29",
-      //   date: "2011/06/27",
-      //   salary: "$183",
-      // },
-      axios(config)
+    let axios = require("axios");
+    let config = {
+      method: "get",
+      url: "http://universities.hipolabs.com/search?country=indonesia",
+      headers: {},
+    };
+    axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         setDataUmum(response.data);
-        console.log("tes")
-        
-        let databebas = DataUmum;  
+        console.log("tes");
+
+        let databebas = DataUmum;
         // alert(DataUmum.length)
         console.log();
-        let dataku = {} ;
-        
-        dataku={name : DataUmum[1].name ,position : DataUmum[1].country , office :DataUmum[1].domains[0] , age : "12" , salary : "$123" ,date : "2001/06/27",}
-        data.rows.push(dataku);
-        console.log(data.rows);
-        setDataTampil(data)
-      // console.log(DataUmum[10].lenght);
-      // data.rows.push(DataUmum[1]);
-        //  console.log(data.rows[0].name)
+        let dataku = {};
+
+        for (let index = 0; index < DataUmum.length; index++) {
+          dataku = {
+            name: DataUmum[index].name,
+            position: DataUmum[index].country,
+            office: DataUmum[index].domains[0],
+            age: "12",
+            salary: "$123",
+            date: "2001/06/27",
+          };
+          data.rows.push(dataku);
+          console.log(data.rows);
+        }
+
+        setDataTampil(data);
       })
       .catch(function (error) {
         console.log(error);
       });
-
-
-  },)
+  });
 
   useEffect(() => {
     if (LoginValid === true) {
@@ -143,23 +136,22 @@ export const Tabel = () => {
           <Link onClick={toggle}>
             <b>Login To admin</b>{" "}
           </Link>
-          <MDBModal   isOpen={ModalToglle} toggle={toggle}>
-              {/* login */}
-              <div className={Style.LoginContainer} >
-                <div className={Style.CardLogin}>
+          <MDBModal isOpen={ModalToglle} toggle={toggle}>
+            {/* login */}
+            <div className={Style.LoginContainer}>
+              <div className={Style.CardLogin}>
                 <MDBModalHeader toggle={toggleClose}>
-              {" "}
-              <h3>Login Admin</h3>
-             </MDBModalHeader>
-                  <MDBInput label="Your e-mail" type="email" />
-                  <MDBInput label="Your Password" type="Password" />
-                  <button onClick={LoginAction} className="btn-green btn">
-                    Login
-                  </button>
-                </div>
+                  {" "}
+                  <h3>Login Admin</h3>
+                </MDBModalHeader>
+                <MDBInput label="Your e-mail" type="email" />
+                <MDBInput label="Your Password" type="Password" />
+                <button onClick={LoginAction} className="btn-green btn">
+                  Login
+                </button>
               </div>
-              {/* login end */}
-          
+            </div>
+            {/* login end */}
           </MDBModal>
         </div>
 
