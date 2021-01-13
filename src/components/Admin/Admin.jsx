@@ -539,7 +539,7 @@ console.log(datamember.data.length)
 
 const Loaddata =()=>{
 for (let index = 0; index < datamember.data.length; index++) {
-  const datacoba = {action : <button key={index}>tes</button> };
+  const datacoba = {action : <button className="btn btn-danger btn-sm" key={index}>Edit</button> };
   const dataku2 = {...datamember.data[index],...datacoba}
   data.rows.push(dataku2);
 
