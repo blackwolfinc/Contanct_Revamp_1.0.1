@@ -44,6 +44,8 @@ export const Tabel = () => {
   const LoginAction = () => {
     setLoginValid(true);
   };
+
+ 
   return (
     <div className={Style.TabelContainer}>
       <div className={Style.CardContainer}>
@@ -71,7 +73,7 @@ export const Tabel = () => {
           </MDBModal>
         </div>
 
-         <ReactFlexyTable data={MOCK_DATA}  globalSearch columns={COLUMNS} filterable nonFilterCols={["gender","email"]}/>
+         <ReactFlexyTable data={MOCK_DATA}    globalSearch columns={COLUMNS} filterable nonFilterCols={["gender","email"]}/>
       </div>
     </div>
   );
