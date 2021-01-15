@@ -8,12 +8,8 @@ import MOCK_DATA from "../MOCK_DATA.json"
 import {COLUMNS} from "./colom"
 import "./Tabel.css";
 import {
-  MDBContainer,
-  MDBBtn,
   MDBModal,
-  MDBModalBody,
   MDBModalHeader,
-  MDBModalFooter,
   MDBInput,
 } from "mdbreact";
 import Style from "./Tabel.module.css";
@@ -45,6 +41,12 @@ export const Tabel = () => {
     setLoginValid(true);
   };
 
+
+
+
+
+
+
  
   return (
     <div className={Style.TabelContainer}>
@@ -74,6 +76,12 @@ export const Tabel = () => {
         </div>
 
          <ReactFlexyTable data={MOCK_DATA}    globalSearch columns={COLUMNS} filterable nonFilterCols={["gender","email"]}/>
+        
+
+
+
+
+
       </div>
     </div>
   );
