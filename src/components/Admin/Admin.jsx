@@ -1,39 +1,35 @@
 
-// import './Tabel.css'
+
+import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { MDBModal, MDBModalHeader, MDBInput } from "mdbreact";
 import ReactFlexyTable from "react-flexy-table";
 import "react-flexy-table/dist/index.css";
 import MOCK_DATA from "../MOCK_DATA.json";
 import Style from "./Admin.module.css";
-import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import {
-  MDBModal,
-  MDBModalHeader,
-  MDBInput,
-} from "mdbreact";
+
 export const Admin = () => {
   //data dari member
   const [DataMemberTampil, setDataMember] = useState();
   const [DataMemberId, setDataMemberId] = useState();
   const [DataMemberExt, setDataMemberExt] = useState();
-  const [DataDataInput, setDataInput] = useState({value: ''});
+  const [DataDataInput, setDataInput] = useState({ value: "" });
   //data dari member end
+  // function  Hook Trigger
   const history = useHistory();
   const [idEmploye, setIdEmploye] = useState(0);
   const [ModalToglle, setModalToglle] = useState(false);
   const [ModalToglle2, setModalToglle2] = useState(false);
   const [LoginValid, setLoginValid] = useState(false);
 
-  //set togle modal 
+  //set togle modal
   function toggle() {
     setModalToglle(true);
-    setDataInput({value :''})
- 
-  };
+    setDataInput({ value: "" });
+  }
   function toggle2() {
     setModalToglle2(true);
- 
-  };
+  }
   const toggleClose = () => {
     setModalToglle(false);
   };
@@ -66,37 +62,22 @@ export const Admin = () => {
     {
       header: "Actions",
       td: (DataMember) => {
-       
-        const setDataku =()=>{
-          
-          setDataMember(DataMember.EmployeeName)
-          setDataMemberId(DataMember.IdEmployee)
-          setDataMemberExt(DataMember.PhoneExt)
-          toggle() ;
-        }
+        const setDataku = () => {
+          setDataMember(DataMember.EmployeeName);
+          setDataMemberId(DataMember.IdEmployee);
+          setDataMemberExt(DataMember.PhoneExt);
+          toggle();
+        };
 
-        const setHapusku= ()=> {
-
-          setDataMember(DataMember.EmployeeName)
-          setDataMemberId(DataMember.IdEmployee)
-          setDataMemberExt(DataMember.PhoneExt)
-          toggle2() ;
-
-
-        }
-      
         return (
           <div>
             <img
-             src={
-              "https://img.favpng.com/13/5/8/computer-icons-scalable-vector-graphics-apple-icon-image-format-png-favpng-cgAuL603i7tr4xHGcwYqr24db.jpg"
-            }
-             
+              src={
+                "https://img.favpng.com/13/5/8/computer-icons-scalable-vector-graphics-apple-icon-image-format-png-favpng-cgAuL603i7tr4xHGcwYqr24db.jpg"
+              }
               width="30"
               height="20"
-              onClick={
-                setDataku
-              }
+              onClick={setDataku}
             />{" "}
           </div>
         );
@@ -105,7 +86,7 @@ export const Admin = () => {
   ];
 
   // cloumend
-
+  // ketika Log out
   useEffect(() => {
     if (LoginValid === true) {
       alert("anda Telah Log Out");
@@ -113,25 +94,20 @@ export const Admin = () => {
     }
   }, [LoginValid]);
 
+  //  ketika input di rubah
+  const handleChange = (event) => {
+    setDataInput({ value: event.target.value });
+  };
 
-  const handleChange =(event)=> {    
-    setDataInput({value: event.target.value});  
-  }
-  
   const LoginAction = () => {
     setLoginValid(true);
   };
 
-  const Hapusbenar = ()=>{
-    toggleClose2()
-    alert("Hapus Berhasil Dengan Inputan = "+DataMemberTampil)
-  }
-
-  const SaveEdit =()=> {
-
-    alert("Save Berhasil Dengan Inputan = "+DataDataInput.value)
-    toggleClose()
-  }
+  // ketika save button di klik
+  const SaveEdit = () => {
+    alert("Save Berhasil Dengan Inputan = " + DataDataInput.value);
+    toggleClose();
+  };
 
   return (
     <div className={Style.TabelContainer}>
@@ -157,10 +133,16 @@ export const Admin = () => {
           <div className={Style.CardLogin}>
             <MDBModalHeader toggle={toggleClose}>
               {" "}
-           
-              <h3>Edit Data     "<b>{DataMemberTampil}</b>"</h3>
+              <h3>
+                Edit Data "<b>{DataMemberTampil}</b>"
+              </h3>
             </MDBModalHeader>
-            <MDBInput label={"Data Awal : "+DataMemberExt} type="text" onChange={handleChange} value={DataDataInput.value} />
+            <MDBInput
+              label={"Data Awal : " + DataMemberExt}
+              type="text"
+              onChange={handleChange}
+              value={DataDataInput.value}
+            />
             <button onClick={SaveEdit} className="btn-green btn">
               Save Edit
             </button>
@@ -168,26 +150,6 @@ export const Admin = () => {
         </div>
       </MDBModal>
       {/* modal edit end  */}
-
-
-      {/* modal hapus */}
-      {/* <MDBModal isOpen={ModalToglle2} toggle={toggle2}>
-        <div className={Style.LoginContainer}>
-          <div className={Style.CardLogin}>
-            <MDBModalHeader toggle={toggleClose2} className="text-center">
-              {" "}
-              <h3>Apakah Anda yakin untuk mengahpus data User:   "<b>{DataMemberTampil}</b>"</h3>
-            </MDBModalHeader>
-            <button onClick={Hapusbenar} className="btn-red btn">
-            Hapus
-            </button>
-            <button onClick={ toggleClose2} className="btn-green btn">
-            Cancle
-            </button>
-          </div>
-        </div>
-      </MDBModal> */}
-      {/* modal edit hapus  */}
     </div>
   );
 };

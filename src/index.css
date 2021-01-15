@@ -49,3 +49,9 @@ box-shadow: inset 9px 9px 26px #ffffff,
 ._1OmBB th, ._1OmBB td {
   padding: 8px 0px !important;
 }
+
+.modal-dialog .modal-content {
+  background: none !important;
+  box-shadow: none !important;
+
+}
