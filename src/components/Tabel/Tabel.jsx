@@ -17,6 +17,12 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 export const Tabel = () => {
   
+  //login from 
+   const [LoginUsername , SetLoginUsername] = useState({value: ''})
+   const [LoginPassword , SetLoginPassword] = useState({value: ''})
+
+  // login end
+
 
   const [ModalToglle, setModalToglle] = useState(false);
   const [LoginValid, setLoginValid] = useState(false);
@@ -32,18 +38,27 @@ export const Tabel = () => {
 
   useEffect(() => {
     if (LoginValid === true) {
-      alert("masuk bos");
       history.push("/admin");
     }
   }, [LoginValid]);
 
+  //hendel login auth akan di taruh di sini
   const LoginAction = () => {
+
+    alert ("anda masuk dengan mengunakan Username  : " +LoginUsername.value +" dan Menggunakan Password : " + LoginPassword.value)
     setLoginValid(true);
+
+
   };
+  // end Hendel Submit  
 
+  const handleChange1 =(event)=> {    
+    SetLoginUsername({value: event.target.value});  
+  }
 
-
-
+  const handleChange2 =(event)=> {    
+    SetLoginPassword({value: event.target.value});  
+  }
 
 
 
@@ -64,11 +79,13 @@ export const Tabel = () => {
                   {" "}
                   <h3>Login Admin</h3>
                 </MDBModalHeader>
-                <MDBInput label="Your e-mail" type="email" />
-                <MDBInput label="Your Password" type="Password" />
-                <button onClick={LoginAction} className="btn-green btn">
+                <form onSubmit={LoginAction}>
+                <MDBInput label="Your e-mail" type="email" onChange={handleChange1} value={LoginUsername.value}/>
+                <MDBInput label="Your Password" type="Password" onChange={handleChange2} value={LoginPassword.value}/>
+                <button type="submit" onClick={LoginAction} className="btn-green btn">
                   Login
                 </button>
+                </form>
               </div>
             </div>
             {/* login end */}

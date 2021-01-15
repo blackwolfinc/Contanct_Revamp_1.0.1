@@ -30,7 +30,7 @@
     width: 10rem;
     align-self: flex-end;
     padding: 5px 10px;
-    border: 1px solid ;
+    
     margin-bottom: 2rem;
     border-radius: 10px;
     background-color: green;
@@ -38,10 +38,32 @@
     -9px -9px 18px #ffffff;
 }
 
+.BtnLogin {
+    width: 10rem;
+    align-self: flex-end;
+    padding: 5px 10px;
+    
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    background-color: green;
+    box-shadow:  9px 9px 18px #bebebe,
+    -9px -9px 18px #ffffff;
+}
+
+.BtnLogin:hover {
+    background-color: #fff;
+    color: black !important;
+    border-radius: 10px;
+    border: 2px solid green;
+}
+.BtnLogin a:hover{
+    
+    color: black !important;
+}
+
 .BtnLogin a {
     color: #fff !important;
     text-decoration: solid;
-
 }
 
 .LoginContainer {
