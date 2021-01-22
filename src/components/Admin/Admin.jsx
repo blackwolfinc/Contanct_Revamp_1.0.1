@@ -122,6 +122,7 @@ export const Admin = () => {
         <ReactFlexyTable
           data={MOCK_DATA}
           globalSearch
+          pageSize= {20}
           columns={COLUMNS}
           filterable
           nonFilterCols={["gender", "email"]}
