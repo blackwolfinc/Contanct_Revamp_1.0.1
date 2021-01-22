@@ -4,7 +4,7 @@
     justify-content: center;
     flex-direction: column;
     height: 100%;
-   
+
 }
 
 .Tabel {
@@ -30,7 +30,7 @@
     width: 10rem;
     align-self: flex-end;
     padding: 5px 10px;
-    
+
     margin-bottom: 2rem;
     border-radius: 10px;
     background-color: green;
@@ -39,13 +39,14 @@
 }
 
 .BtnLogin:hover {
+    display: block;
     background-color: #fff;
     color: black !important;
     border-radius: 10px;
     border: 2px solid green;
 }
 .BtnLogin span:hover{
-    
+
     color: black !important;
 }
 
@@ -71,11 +72,20 @@
     flex-direction: column;
     padding: 3rem;
     border-radius: 20px;
-   
-    
+
+
 }
 
 .modalTrans {
 background: red !important;
 box-shadow: none;
+}
+
+.ActionButtonWrap {
+    width: 100%;
+}
+
+._1OmBB thead th:hover:nth-child(6){
+
+    width: 0px !important;
 }

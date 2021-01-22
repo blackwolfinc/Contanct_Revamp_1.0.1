@@ -7,6 +7,7 @@ import ReactFlexyTable from "react-flexy-table";
 import "react-flexy-table/dist/index.css";
 import MOCK_DATA from "../MOCK_DATA.json";
 import Style from "./Admin.module.css";
+import './admincCss.css'
 
 export const Admin = () => {
   //data dari member
@@ -40,28 +41,31 @@ export const Admin = () => {
   // coloum
   const COLUMNS = [
     {
-      header: "Nama",
+      header: <i class="far fas fa-sort fa-s"> Name</i> ,
       key: "EmployeeName",
     },
     {
-      header: "Exts",
+      header: <i class="fas  fa-sort fa-s"> Exts</i>,
       key: "PhoneExt",
     },
     {
-      header: "Email",
+      header: <i class="fas  fa-sort fa-s"> E-mail</i>,
       key: "EmailAddress",
     },
     {
-      header: "Division",
+      header: <i class="fas  fa-sort fa-s"> Division</i>,
       key: "Division",
     },
     {
-      header: "Department",
+      header: <i class="fas  fa-sort fa-s"> Department</i>,
       key: "Department",
     },
     {
-      header: "Actions",
-      td: (DataMember) => {
+      header: <i class="fas  fa-s">  Actions</i>,
+      maxWidth: 2,
+      className:"tes ini",
+      td : (DataMember) => {
+
         const setDataku = () => {
           setDataMember(DataMember.EmployeeName);
           setDataMemberId(DataMember.IdEmployee);
@@ -70,15 +74,17 @@ export const Admin = () => {
         };
 
         return (
-          <div>
-            <img
+          <div  onClick={setDataku} className={Style.ActionButtonWrap}>
+           <i class="far fa-edit fa-1x"> EDIT</i>
+            {/* <img
               src={
-                "https://img.favpng.com/13/5/8/computer-icons-scalable-vector-graphics-apple-icon-image-format-png-favpng-cgAuL603i7tr4xHGcwYqr24db.jpg"
+                "https://www.pngfind.com/pngs/m/70-704605_edit-icon-red-edit-icon-hd-png-download.png"
               }
-              width="30"
+              width="20"
               height="20"
-              onClick={setDataku}
-            />{" "}
+
+
+            />{" "} */}
           </div>
         );
       },
@@ -112,20 +118,24 @@ export const Admin = () => {
   return (
     <div className={Style.TabelContainer}>
       <div className={Style.CardContainer}>
-        <h1>Contanct Person Admin</h1>
-        <div className={Style.BtnLogin}>
-          <span onClick={LoginAction}>
-            <b>Logout</b>{" "}
+        <h1>Contact Person Admin Panel</h1>
+        <div onClick={LoginAction} className={Style.BtnLogin}>
+          <span >
+            <b>Logout</b>
+            {" "}
           </span>
         </div>
 
         <ReactFlexyTable
           data={MOCK_DATA}
-          globalSearch
+          // globalSearch
           pageSize= {20}
           columns={COLUMNS}
           filterable
+          sortable
+          pageSizeOptions={[5,10,20,30,50,100,200]}
           nonFilterCols={["gender", "email"]}
+
         />
       </div>
       {/* modal Edit */}

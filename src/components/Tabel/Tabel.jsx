@@ -15,23 +15,23 @@ export const Tabel = () => {
   // data coloum
   const COLUMNS = [
     {
-      header: "Nama",
+      header: <i class="far fas fa-sort fa-s"> Name</i> ,
       key: "EmployeeName",
     },
     {
-      header: "Exts",
+      header: <i class="fas  fa-sort fa-s"> Exts</i>,
       key: "PhoneExt",
     },
     {
-      header: "Email",
+      header: <i class="fas  fa-sort fa-s"> E-mail</i>,
       key: "EmailAddress",
     },
     {
-      header: "Division",
+      header: <i class="fas  fa-sort fa-s"> Division</i>,
       key: "Division",
     },
     {
-      header: "Department",
+      header: <i class="fas  fa-sort fa-s"> Department</i>,
       key: "Department",
     },
   ];
@@ -82,7 +82,7 @@ export const Tabel = () => {
   return (
     <div className={Style.TabelContainer}>
       <div className={Style.CardContainer}>
-        <h1>Contanct Person</h1>
+        <h1>Contact Person</h1>
         <div className={Style.BtnLogin}>
           <Link onClick={toggle}>
             <b>Login To admin</b>{" "}
@@ -124,9 +124,13 @@ export const Tabel = () => {
 
         <ReactFlexyTable
           data={MOCK_DATA}
-          globalSearch
+          // globalSearch
           pageSize= {20}
           columns={COLUMNS}
+          sortable
+          downloadExcelText="Download data"
+          showExcelButton={true}
+          pageSizeOptions={[5,10,20,30,50,100,200]}
           filterable
           nonFilterCols={["gender", "email"]}
         />
