@@ -75,7 +75,7 @@ export const Admin = () => {
 
         return (
           <div  onClick={setDataku} className={Style.ActionButtonWrap}>
-           <i class="far fa-edit fa-1x"> EDIT</i>
+           <i class="far fa-edit fa-1x"> Edit</i>
             {/* <img
               src={
                 "https://www.pngfind.com/pngs/m/70-704605_edit-icon-red-edit-icon-hd-png-download.png"
