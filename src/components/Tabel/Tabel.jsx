@@ -11,6 +11,7 @@ export const Tabel = () => {
   //login from
   const [LoginUsername, SetLoginUsername] = useState({ value: "" });
   const [LoginPassword, SetLoginPassword] = useState({ value: "" });
+  const [FilterTable, SetFilterTable] = useState(false);
   // login end
   // data coloum
   const COLUMNS = [
@@ -42,6 +43,15 @@ export const Tabel = () => {
   const [LoginValid, setLoginValid] = useState(false);
   const history = useHistory();
   // Function Hook Trigger end
+
+  const SearchTrigger =()=>{
+    if (FilterTable===true) {
+      SetFilterTable(false)
+    }else{
+      SetFilterTable(true)
+    }
+
+  }
 
   // untuk mengaktifkan Modal
   const toggle = () => {
@@ -83,6 +93,8 @@ export const Tabel = () => {
     <div className={Style.TabelContainer}>
       <div className={Style.CardContainer}>
         <h1>Contact Person</h1>
+        <div className={Style.ContainerSearch}>
+        <div onClick={SearchTrigger} className={Style.BtnSearch}><b>Search</b></div>
         <div className={Style.BtnLogin}>
           <Link onClick={toggle}>
             <b>Login To admin</b>{" "}
@@ -115,12 +127,17 @@ export const Tabel = () => {
                   >
                     Login
                   </button>
+
                 </form>
+
               </div>
             </div>
             {/* login end */}
           </MDBModal>
         </div>
+        </div>
+
+
 
         <ReactFlexyTable
           data={MOCK_DATA}
@@ -131,7 +148,8 @@ export const Tabel = () => {
           downloadExcelText="Download data"
           showExcelButton={true}
           pageSizeOptions={[5,10,20,30,50,100,200]}
-          filterable
+          filterable= {FilterTable}
+
           nonFilterCols={["gender", "email"]}
         />
       </div>

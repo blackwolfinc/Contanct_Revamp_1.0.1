@@ -1,15 +1,19 @@
 
-
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { MDBModal, MDBModalHeader, MDBInput } from "mdbreact";
 import ReactFlexyTable from "react-flexy-table";
+import ReactExport from "react-data-export";
+
 import "react-flexy-table/dist/index.css";
 import MOCK_DATA from "../MOCK_DATA.json";
 import Style from "./Admin.module.css";
 import './admincCss.css'
 
 export const Admin = () => {
+  const ExcelFile = ReactExport.ExcelFile;
+  const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+  const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
   //data dari member
   const [DataMemberTampil, setDataMember] = useState();
   const [DataMemberId, setDataMemberId] = useState();
@@ -22,6 +26,7 @@ export const Admin = () => {
   const [ModalToglle, setModalToglle] = useState(false);
   const [ModalToglle2, setModalToglle2] = useState(false);
   const [LoginValid, setLoginValid] = useState(false);
+  const [FilterTable, SetFilterTable] = useState(false);
 
   //set togle modal
   function toggle() {
@@ -115,15 +120,49 @@ export const Admin = () => {
     toggleClose();
   };
 
+  const SearchTrigger =()=>{
+    if (FilterTable===true) {
+      SetFilterTable(false)
+    }else{
+      SetFilterTable(true)
+    }
+
+  }
+  const downloadExcelProps ={
+   type: 'filtered',
+   title: 'MOCK_DATA',
+   showLabel:true,
+}
+
   return (
     <div className={Style.TabelContainer}>
       <div className={Style.CardContainer}>
         <h1>Contact Person Admin Panel</h1>
+        <div  className={Style.ContainerSearch}>
+          <div className={Style.SearchWrapper}>
+          <div onClick={SearchTrigger} className={Style.BtnSearch}><b>Search</b></div>
+        {/* dowonload excel */}
+        <ExcelFile element={<div className={Style.BtnDownload  }><b>Download Data</b></div>}>
+                        <ExcelSheet data={MOCK_DATA} name="Employees">
+                            <ExcelColumn label="Name" value="EmployeeName"/>
+                            <ExcelColumn label="Exts" value="PhoneExt"/>
+                            <ExcelColumn label="E-mail" value="EmailAddress"/>
+                            <ExcelColumn label="Division" value="Division"/>
+                            <ExcelColumn label="Department" value="Department"/>
+                        </ExcelSheet>
+                    </ExcelFile>
+
+
+        {/* download excel end */}
+
+          </div>
+
         <div onClick={LoginAction} className={Style.BtnLogin}>
-          <span >
+
             <b>Logout</b>
-            {" "}
-          </span>
+
+        </div>
+
         </div>
 
         <ReactFlexyTable
@@ -131,10 +170,11 @@ export const Admin = () => {
           // globalSearch
           pageSize= {20}
           columns={COLUMNS}
-          filterable
+          filterable= {FilterTable}
           sortable
           pageSizeOptions={[5,10,20,30,50,100,200]}
           nonFilterCols={["gender", "email"]}
+
 
         />
       </div>
@@ -161,6 +201,8 @@ export const Admin = () => {
         </div>
       </MDBModal>
       {/* modal edit end  */}
+
     </div>
+
   );
 };

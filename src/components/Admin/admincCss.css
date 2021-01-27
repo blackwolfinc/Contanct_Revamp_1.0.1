@@ -1,14 +1,15 @@
 ._1OmBB thead tr th:nth-child(6) {
-    background-color:green!important;
-    color: #ffffff;
+    /* background-color:green!important; */
+    /* color: #ffffff; */
     width: 100px !important;
+    height: 4rem;
     /* border-left: 2px solid gray; */
     /* border: 2px solid black; */
 }
 ._1OmBB thead  tr:nth-child(6) {
     background-color:#ffffff !important;
     width: 100px !important;
-    color: #ffffff;
+    /* color: #ffffff; */
     /* border: 2px solid black; */
 }
 
@@ -61,15 +62,25 @@
     transform: scale(1.01);
 }
 ._1OmBB thead tr th {
-    background-color: green !important;
-    color: #ffffff;
+    /* background-color: green !important; */
+    /* color: #ffffff; */
+    height: 70px;
 }
-._1OmBB thead tr td:nth-child(-n+5) {
-    background-color: #6abb5e !important;
-    padding-bottom: 1rem;
-    border-bottom: 10px solid #ffffff
+._1OmBB thead tr th:hover{
+    background: none;
+    color: green !important;
+    /* border:2px solid green; */
+    transform: translateY(-7px);
 
 }
+
+._1OmBB thead tr td:nth-child(-n+5) {
+    /* background-color: #6abb5e !important; */
+    padding-bottom: 1rem;
+    border-bottom: 10px solid #ffffff;
+    animation: 0.4s ease-out 0s 1 slideInFromLeft;
+}
+
 
 .rft-page-text {
     margin-left: 20px;
@@ -77,3 +88,27 @@
 .rft-page-text {
     margin-right: 20px;
 }
+
+.rft-table-collapse {
+    box-shadow: 5px 140px 60px #d6d6d6, -1px -1px 4px #ffffff;
+}
+._1OmBB thead:nth-child(1) {
+
+    /* background: radial-gradient(circle, rgba(43,158,40,1) 0%, rgba(21,125,31,1) 62%); */
+outline: 2px solid green;
+border-top: 3px solid green;
+}
+._1OmBB thead tr:nth-child(2){
+    background: #ffffff !important;
+}
+._1OmBB thead tr {
+    background: none !important;
+}
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateY(-20%);
+    }
+    60% {
+      transform: translateY(0);
+    }
+  }

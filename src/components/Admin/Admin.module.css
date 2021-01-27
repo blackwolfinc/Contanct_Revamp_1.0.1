@@ -13,7 +13,7 @@
     flex-direction: column;
     padding: 20px;
     border-radius: 5px;
-    box-shadow:  20px 20px 60px #bebebe,
+    box-shadow:  60px 60px 60px #bebebe,
              -20px -20px 60px #ffffff;
 }
 
@@ -26,25 +26,39 @@
     border-radius: 10px;
 }
 
+
 .BtnLogin {
     width: 10rem;
     align-self: flex-end;
-    padding: 5px 10px;
+    padding: 6px 10px;
 
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    background-color: green;
-    box-shadow:  9px 9px 18px #bebebe,
-    -9px -9px 18px #ffffff;
+    margin-bottom: 0.2rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: linear-gradient(214deg, rgba(255,255,255,1) 0%, rgba(244,232,22,1) 0%, rgba(19,121,29,1) 12%, rgba(21,125,31,1) 61%);
+    border-bottom: 1px solid #fff;
 }
 
+.BtnLogin:focus {
+    outline: none;
+}
 .BtnLogin:hover {
-    display: block;
-    background-color: #fff;
+    background: #fff;
     color: black !important;
-    border-radius: 10px;
     border: 2px solid green;
 }
+
+.BtnSearch:hover , .BtnDownload:hover{
+    background: #fff;
+    color: black !important;
+    border: 2px solid green;
+}
+
+.BtnLogin a ,.BtnLogin  {
+    color: #fff !important;
+    text-decoration: solid;
+}
+
 .BtnLogin span:hover{
 
     color: black !important;
@@ -89,3 +103,50 @@ box-shadow: none;
 
     width: 0px !important;
 }
+
+.ContainerSearch {
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-bottom:-0.2rem;
+    margin-left: 0;
+    height: 40px;
+    z-index: 1;
+    }
+    .SearchWrapper {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        height: 40px;
+    }
+    .TambahanBtn {
+        margin-right: 1rem;
+    }
+
+    .BtnSearch {
+        display: flex;
+        width: 10rem;
+        align-self: flex-end;
+        padding: 6px 10px;
+        color: #fff;
+        margin-bottom: 0.2rem;
+        border-top-left-radius: 10px;
+        background-color: green;
+        z-index: 10;
+        border-bottom: 1px solid #fff;
+        border-left: 1px solid #fff;
+        cursor: default;
+    }
+
+    .BtnDownload { width: 10rem;
+        display: flex;
+        justify-content: center;
+        padding: 6px 10px;
+        color: #fff;
+        cursor: alias;
+        border-top-right-radius: 10px;
+        background: linear-gradient(214deg, rgba(255,255,255,1) 0%, rgba(244,232,22,1) 0%, rgba(19,121,29,1) 12%, rgba(21,125,31,1) 61%);
+        border-bottom: 1px solid #fff;
+        border-left: 1px solid #fff;
+       }
